@@ -213,4 +213,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.scrollY > 50) {
         document.querySelector('header').classList.add('scrolled');
     }
-}); 
+});
+
+function createWhitepaperCard(whitepaper) {
+    return `
+        <div class="whitepaper-card">
+            <h3>${whitepaper.title}</h3>
+            <p>${whitepaper.description}</p>
+            <div class="date">${whitepaper.date}</div>
+            <a href="${whitepaper.link}" target="_blank">Read Whitepaper →</a>
+        </div>
+    `;
+} 

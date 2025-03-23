@@ -112,6 +112,14 @@
             </div>
         </section>
 
+        <section id="whitepapers" class="whitepapers">
+            <div class="container">
+                <h2>Whitepapers</h2>
+                <div class="whitepaper-grid">
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="contact">
             <div class="container">
                 <h2>Get In Touch</h2>
@@ -229,6 +237,52 @@
         }
         ];
 
+        // Whitepaper Data
+        const whitepapers = [
+            {
+                title: "Template Whitepaper",
+                description: "This is a template for future whitepapers. Each whitepaper will include a detailed analysis of specific topics in AI, system design, or cognitive modeling.",
+                link: "error.html",
+                date: "March 2024"
+            },
+            {
+                title: "Template Whitepaper",
+                description: "This is a template for future whitepapers. Each whitepaper will include a detailed analysis of specific topics in AI, system design, or cognitive modeling.",
+                link: "error.html",
+                date: "March 2024"
+            },
+            {
+                title: "Template Whitepaper",
+                description: "This is a template for future whitepapers. Each whitepaper will include a detailed analysis of specific topics in AI, system design, or cognitive modeling.",
+                link: "error.html",
+                date: "March 2024"
+            },
+            {
+                title: "Template Whitepaper",
+                description: "This is a template for future whitepapers. Each whitepaper will include a detailed analysis of specific topics in AI, system design, or cognitive modeling.",
+                link: "error.html",
+                date: "March 2024"
+            },
+        ];
+
+        // Function to create whitepaper cards
+        function createWhitepaperCard({ title, description, link, date }) {
+            return `
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                        <div class="project-tags">
+                            <span>${date}</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="${link}" class="btn small primary" target="_blank">Read Whitepaper</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
         // Generate project cards
         document.addEventListener('DOMContentLoaded', function() {
             const projectGrid = document.querySelector('.project-grid');
@@ -239,6 +293,11 @@
             const podcastGrid = document.querySelector('.podcast-grid');
             if (podcastGrid) {
                 podcastGrid.innerHTML = podcasts.map(podcast => createPodcastCard(podcast)).join('');
+            }
+
+            const whitepaperGrid = document.querySelector('.whitepaper-grid');
+            if (whitepaperGrid) {
+                whitepaperGrid.innerHTML = whitepapers.map(whitepaper => createWhitepaperCard(whitepaper)).join('');
             }
         });
     </script>
