@@ -124,10 +124,12 @@
                             </div>
                         </div>
                         <div class="social-links">
-                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/miki-przygoda" class="social-icon">
+                                <img src="assets/images/github-logo.png" alt="GitHub" style="width: 24px; height: 24px;">
+                            </a>
+                            <!-- <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a> -->
                         </div>
                     </div>
                     <div class="contact-form">
@@ -142,7 +144,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <textarea id="message" name="message" rows="5" required style="resize: vertical; min-height: 150px; max-height: 300px; overflow-y: auto;"></textarea>
                             </div>
                             <button type="submit" class="btn primary">Send Message</button>
                         </form>
@@ -161,6 +163,8 @@
     <script src="assets/js/projects.js"></script>
     <script src="assets/js/podcast.js"></script>
     <script src="assets/js/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="assets/js/email.js"></script>
     <script>
 
         // Project Data

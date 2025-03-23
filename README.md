@@ -13,6 +13,8 @@ This is the source code for my personal website, built to showcase who I am, the
 - Linked long-form podcast reflections
 - Easily extendable and lightweight
 
+- ⚠️ At the moment the emailing system DOES NOT WORK -- will get fixed in a future update ⚠️
+
 ---
 
 ## 📁 Structure

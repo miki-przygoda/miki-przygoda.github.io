@@ -174,9 +174,10 @@ styleSheet.innerHTML = `
     .success-message {
         text-align: center;
         padding: 2rem;
-        background-color: #f8f9fa;
+        background-color: var(--dark-color);
         border-radius: 10px;
         border-left: 5px solid var(--success-color);
+        color: var(--light-color);
     }
 `;
 document.head.appendChild(styleSheet);
