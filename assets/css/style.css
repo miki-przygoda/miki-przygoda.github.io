@@ -75,6 +75,19 @@
     --success-color: #00b4d8;
 }
 
+[data-theme="darker"] {
+    --primary-color: #000000;
+    --secondary-color: #6c63ff;
+    --accent-color: #00ff9d;
+    --highlight-color: #ff6b6b;
+    --dark-color: #0a0a0a;
+    --light-color: #ffffff;
+    --alt-light-color: #1a1a1a;
+    --gray-color: #666666;
+    --border-color: #222222;
+    --success-color: #00ff9d;
+}
+
 [data-theme="light"] {
     --primary-color: #ffffff;
     --secondary-color: #4a90e2;
@@ -86,6 +99,19 @@
     --gray-color: #666666;
     --border-color: #dddddd;
     --success-color: #50c878;
+}
+
+[data-theme="lighter"] {
+    --primary-color: #ffffff;
+    --secondary-color: #3498db;
+    --accent-color: #2ecc71;
+    --highlight-color: #e74c3c;
+    --dark-color: #f8f9fa;
+    --light-color: #2c3e50;
+    --alt-light-color: #ecf0f1;
+    --gray-color: #95a5a6;
+    --border-color: #e0e0e0;
+    --success-color: #2ecc71;
 }
 
 [data-theme="ocean"] {
@@ -112,6 +138,32 @@
     --gray-color: #8d8d8d;
     --border-color: #3a4b3a;
     --success-color: #2d6a4f;
+}
+
+[data-theme="coffee"] {
+    --primary-color: #2c1810;
+    --secondary-color: #8b4513;
+    --accent-color: #d2691e;
+    --highlight-color: #deb887;
+    --dark-color: #1a0f0a;
+    --light-color: #f5f5f5;
+    --alt-light-color: #3c2315;
+    --gray-color: #8d8d8d;
+    --border-color: #4c2d1a;
+    --success-color: #8b4513;
+}
+
+[data-theme="sand"] {
+    --primary-color: #f5e6d3;
+    --secondary-color: #d4a373;
+    --accent-color: #ccd5ae;
+    --highlight-color: #e9edc9;
+    --dark-color: #faf3e0;
+    --light-color: #2c1810;
+    --alt-light-color: #e9edc9;
+    --gray-color: #8d8d8d;
+    --border-color: #d4a373;
+    --success-color: #ccd5ae;
 }
 
 * {
@@ -348,7 +400,19 @@ header.scrolled .nav-links a.active {
     display: flex;
     align-items: center;
     text-align: center;
-    background: linear-gradient(to right, var(--primary-color), var(--dark-color));
+    background: linear-gradient(to bottom, var(--primary-color), var(--dark-color));
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--primary-color));
+    pointer-events: none;
 }
 
 .hero h1 {
@@ -408,9 +472,21 @@ header.scrolled .nav-links a.active {
 
 /* Projects Section */
 .projects {
-    background-color: var(--dark-color);
+    background: linear-gradient(to bottom, var(--primary-color), var(--dark-color));
     margin-bottom: 5rem;
-    scroll-margin-top: 150px; /* Increased from 80px */
+    scroll-margin-top: 150px;
+    position: relative;
+}
+
+.projects::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--primary-color));
+    pointer-events: none;
 }
 
 .section-intro {
@@ -439,6 +515,9 @@ header.scrolled .nav-links a.active {
     position: relative;
     transform-origin: center bottom;
     will-change: transform;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -464,6 +543,21 @@ header.scrolled .nav-links a.active {
 
 .project-info {
     padding: 1.5rem;
+    transform: translateZ(0);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-info h3 {
+    margin-bottom: 1rem;
+    color: var(--light-color);
+}
+
+.project-info p {
+    color: var(--gray-color);
+    margin-bottom: 1rem;
+    flex: 1;
 }
 
 .project-tags {
@@ -484,13 +578,27 @@ header.scrolled .nav-links a.active {
 .project-links {
     display: flex;
     gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 /* Podcast Section */
 .podcast {
-    background-color: var(--dark-color);
+    background: linear-gradient(to bottom, var(--primary-color), var(--dark-color));
     padding: 5rem 0;
-    scroll-margin-top: 150px; /* Increased from 80px */
+    scroll-margin-top: 150px;
+    position: relative;
+}
+
+.podcast::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--primary-color));
+    pointer-events: none;
 }
 
 .podcast .section-intro {
@@ -517,10 +625,12 @@ header.scrolled .nav-links a.active {
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border-color);
-    min-height: 250px; /* Set minimum height */
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transform-origin: center bottom;
+    will-change: transform;
 }
 
 .podcast-card:hover {
@@ -532,6 +642,7 @@ header.scrolled .nav-links a.active {
     flex: 1;
     display: flex;
     flex-direction: column;
+    transform: translateZ(0); /* Prevent 3D transform on content */
 }
 
 .podcast-info h3 {
@@ -604,9 +715,15 @@ header.scrolled .nav-links a.active {
     max-width: 1000px;
     margin: 0 auto;
     padding: 1.5rem;
-    background: var(--dark-color);
+    background: var(--primary-color);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.contact-content::after {
+    display: none;
 }
 
 .contact-item {
@@ -703,6 +820,37 @@ header.scrolled .nav-links a.active {
 .form-group textarea {
     min-height: 120px;
     resize: vertical;
+}
+
+/* Update form submit button style */
+.contact-form button[type="submit"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-width: 100px;
+    height: 36px;
+    background-color: rgba(127, 90, 240, 0.1);
+    border: 1px solid rgba(127, 90, 240, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 0 1rem;
+    margin-top: 1rem;
+    color: var(--light-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.contact-form button[type="submit"]::before {
+    content: "";
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 @media screen and (max-width: 768px) {
