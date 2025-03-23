@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         successMessage.innerHTML = `
                             <h3>Thank you for your message!</h3>
                             <p>I'll get back to you as soon as possible.</p>
+                            <p>Currently the emailing system is not working, will fix in a future update.</p>
                         `;
                         
                         formContainer.innerHTML = '';
