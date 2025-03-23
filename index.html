@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MM</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        window.onload = function() {
+            window.scrollTo(-100, 0);
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" style="padding: 0 40px;">Mikolaj Mikuliszyn</div>
+            <ul class="nav-links" style="padding: 0 20px;">
+                <li><a href="#intro">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#podcast">Podcast</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro" class="hero">
+            <div class="container">
+                <h1>Hello, I'm <span class="highlight">Mikolaj Mikuliszyn</span></h1>
+                <p class="subtitle">Student and Software Engineer</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">View My Work</a>
+                    <a href="#contact" class="btn secondary">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="assets/images/TemplateImage.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            I'm Mikolaj Mikuliszyn, a first-year Computer Science and Artificial Intelligence student at the University of Greenwich. My work focuses on exploring the intersection between system design, cognitive modeling, and the future of machine intelligence. I'm particularly interested in how we simulate thought, emotion, and memory in artificial systems.
+                        </p>
+                        <p>
+                            I've developed a wide range of projects — from prime-finding algorithms and family tree models, to AI-powered Discord bots and experimental architectures exploring emotional behavior in machine learning. Each project serves as a step toward building systems that respond intelligently to their environment and evolve through interaction.
+                        </p>
+                        <p>
+                            Beyond AI, I've worked on simulations involving physics and orbital mechanics, game development in Xcode, backend systems using Python and SQL, and early-stage ideas in quantum-assisted cognition. My approach is grounded in curiosity and driven by the belief that understanding the limits of artificial intelligence can teach us something deeper about our own.
+                        </p>
+                    </div>
+
+                    <div class="skills">
+                        <h3>My Skills</h3>
+                        <div class="skill-tags">
+                            <!-- Technical Skills -->
+                            <span>Python</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Scheme (Racket)</span>
+                            <span>SQL</span>
+                            <span>Git & GitHub</span>
+                            <span>Docker</span>
+                            <span>(Swift Basics)</span>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                </div>
+            </div>
+        </section>
+
+        <section id="podcast" class="podcast">
+            <div class="container">
+                <h2>A Look Into My Mind</h2>
+                <p class="section-intro">Listen to my latest podcast episodes exploring tech, and my thoughts on the future of AI.</p>
+                <div class="podcast-grid">
+                </div>
+                <!-- <div class="podcast-platforms">
+                    <p>Available on:</p>
+                    <div class="platform-links">
+                        <a href="#" class="platform-link">Spotify</a>
+                        <a href="#" class="platform-link">Apple Podcasts</a>
+                        <a href="#" class="platform-link">Google Podcasts</a>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p>Feel free to reach out if you have any questions or just want to connect!</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <p>mikolaj.mikuliszyn@gmail.com</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>London, UK</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Nothing to see here.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/projects.js"></script>
+    <script src="assets/js/podcast.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+
+        // Project Data
+        const projects = [
+            {
+                title: "Project Title 1",
+                description: "Short description of the project highlighting key features and technologies used.",
+                image: "assets/images/TemplateImage.jpg",
+                technologies: ["HTML", "CSS", "JavaScript"],
+                githubLink: "#"
+            }
+            // Add more projects here
+        ];
+
+        // Podcast Data
+        const podcasts = [
+            {
+                title: "The Future of AI",
+                description: "Exploring the latest developments in artificial intelligence and their implications for society.",
+                image: "assets/images/TemplateImage.jpg",
+                episodeNumber: 1,
+                link: "error.html",
+                date: "March 23, 2024"
+            }
+            // Add more podcast episodes here
+        ];
+
+        // Generate project cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectGrid = document.querySelector('.project-grid');
+            if (projectGrid) {
+                projectGrid.innerHTML = projects.map(project => createProjectCard(project)).join('');
+            }
+
+            const podcastGrid = document.querySelector('.podcast-grid');
+            if (podcastGrid) {
+                podcastGrid.innerHTML = podcasts.map(podcast => createPodcastCard(podcast)).join('');
+            }
+        });
+    </script>
+</body>
+</html>
