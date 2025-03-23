@@ -1,5 +1,21 @@
 // Navigation 
 document.addEventListener('DOMContentLoaded', () => {
+    // Theme Switching
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    const htmlElement = document.documentElement;
+
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'default';
+    htmlElement.setAttribute('data-theme', savedTheme);
+
+    themeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const theme = button.getAttribute('data-theme');
+            htmlElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        });
+    });
+
     // Mobile Navigation Toggle
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
