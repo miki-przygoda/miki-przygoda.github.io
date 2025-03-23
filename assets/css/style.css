@@ -209,8 +209,8 @@ section {
     color: var(--light-color);
 }
 
-.btn.primary:hover {
-    background-color: var(--accent-color); /* neon green */
+.btn.primary:not(.small):hover {
+    background-color: var(--highlight-color); /* melon */
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -221,9 +221,9 @@ section {
     border: 2px solid var(--secondary-color);
 }
 
-.btn.secondary:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
+.btn.secondary:not(.small):hover {
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
     color: var(--light-color);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -232,6 +232,12 @@ section {
 .btn.small {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
+}
+
+.btn.small:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--light-color);
 }
 
 /* Header & Navigation */
@@ -378,22 +384,48 @@ header.scrolled .nav-links a.active {
     grid-template-columns: 1fr 2fr;
     grid-gap: 2rem;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .about-image {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.about-text h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.8;
 }
 
 .skills {
     margin-top: 2rem;
+    width: 100%;
 }
 
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    justify-content: center;
 }
 
 .skill-tags span {
@@ -516,6 +548,21 @@ header.scrolled .nav-links a.active {
     font-size: 0.8rem;
 }
 
+[data-theme="charcoal"] .project-tags span {
+    background-color: rgba(149, 165, 166, 0.2); /* semi-transparent charcoal gray */
+    color: var(--light-color);
+}
+
+[data-theme="cream"] .project-tags span {
+    background-color: rgba(212, 180, 131, 0.2); /* semi-transparent cream brown */
+    color: var(--light-color);
+}
+
+[data-theme="neon"] .project-tags span {
+    background-color: rgba(0, 255, 0, 0.2); /* semi-transparent neon green */
+    color: var(--light-color);
+}
+
 .project-links {
     display: flex;
     gap: 1rem;
@@ -607,15 +654,39 @@ header.scrolled .nav-links a.active {
 
 .podcast-link {
     display: inline-block;
-    color: var(--accent-color);
+    color: var(--secondary-color);
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
-    margin-top: auto; /* Push link to bottom */
+    margin-top: auto;
 }
 
 .podcast-link:hover {
+    color: var(--accent-color);
+}
+
+[data-theme="charcoal"] .podcast-link {
     color: var(--secondary-color);
+}
+
+[data-theme="charcoal"] .podcast-link:hover {
+    color: var(--accent-color);
+}
+
+[data-theme="cream"] .podcast-link {
+    color: var(--secondary-color);
+}
+
+[data-theme="cream"] .podcast-link:hover {
+    color: var(--accent-color);
+}
+
+[data-theme="neon"] .podcast-link {
+    color: var(--secondary-color);
+}
+
+[data-theme="neon"] .podcast-link:hover {
+    color: var(--highlight-color);
 }
 
 .podcast-platforms {
@@ -726,18 +797,51 @@ header.scrolled .nav-links a.active {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 36px;
-    height: 36px;
-    background-color: rgba(127, 90, 240, 0.1);
+    width: 48px;
+    height: 48px;
+    background-color: var(--secondary-color);
     border-radius: 8px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(127, 90, 240, 0.2);
+    border: 1px solid var(--secondary-color);
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Makes the icon white */
 }
 
 .social-icon:hover {
-    background-color: var(--secondary-color);
-    color: var(--light-color);
+    border-color: var(--accent-color);
     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="charcoal"] .social-icon {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+[data-theme="charcoal"] .social-icon:hover {
+    border-color: var(--accent-color);
+}
+
+[data-theme="cream"] .social-icon {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+[data-theme="cream"] .social-icon:hover {
+    border-color: var(--accent-color);
+}
+
+[data-theme="neon"] .social-icon {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+[data-theme="neon"] .social-icon:hover {
+    border-color: var(--highlight-color);
 }
 
 .form-group {
@@ -821,6 +925,20 @@ header.scrolled .nav-links a.active {
     
     section {
         scroll-margin-top: 130px; /* Increased from 60px */
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .about-text {
+        padding: 1rem;
     }
 }
 
@@ -914,11 +1032,6 @@ footer p {
         opacity: 1;
     }
     
-    .about-content,
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-    
     .project-grid,
     .podcast-grid {
         grid-template-columns: 1fr;
@@ -983,4 +1096,127 @@ footer p {
 .project-card:hover .project-image img, 
 .podcast-card:hover .podcast-image img {
     transform: scale(1.05);
+}
+
+/* Theme-specific button styles */
+[data-theme="charcoal"] .btn.primary {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+
+[data-theme="charcoal"] .btn.primary:hover {
+    background-color: var(--accent-color);
+}
+
+[data-theme="charcoal"] .btn.secondary {
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+[data-theme="charcoal"] .btn.secondary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--light-color);
+}
+
+[data-theme="charcoal"] .social-icon {
+    background-color: rgba(149, 165, 166, 0.1);
+    border: 1px solid rgba(149, 165, 166, 0.2);
+}
+
+[data-theme="charcoal"] .social-icon:hover {
+    border-color: var(--secondary-color);
+}
+
+[data-theme="cream"] .btn.primary {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+
+[data-theme="cream"] .btn.primary:hover {
+    background-color: var(--accent-color);
+}
+
+[data-theme="cream"] .btn.secondary {
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+[data-theme="cream"] .btn.secondary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--light-color);
+}
+
+[data-theme="cream"] .social-icon {
+    background-color: rgba(212, 180, 131, 0.1);
+    border: 1px solid rgba(212, 180, 131, 0.2);
+}
+
+[data-theme="cream"] .social-icon:hover {
+    border-color: var(--secondary-color);
+}
+
+[data-theme="neon"] .btn.primary {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+
+[data-theme="neon"] .btn.primary:hover {
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
+}
+
+[data-theme="neon"] .btn.secondary {
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+[data-theme="neon"] .btn.secondary:hover {
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
+    color: var(--primary-color);
+}
+
+[data-theme="neon"] .social-icon {
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+[data-theme="neon"] .social-icon:hover {
+    border-color: var(--highlight-color);
+}
+
+/* Update form submit button styles for each theme */
+[data-theme="charcoal"] .contact-form button[type="submit"] {
+    background-color: rgba(149, 165, 166, 0.1);
+    border: 1px solid rgba(149, 165, 166, 0.2);
+}
+
+[data-theme="charcoal"] .contact-form button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+}
+
+[data-theme="cream"] .contact-form button[type="submit"] {
+    background-color: rgba(212, 180, 131, 0.1);
+    border: 1px solid rgba(212, 180, 131, 0.2);
+}
+
+[data-theme="cream"] .contact-form button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+}
+
+[data-theme="neon"] .contact-form button[type="submit"] {
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+[data-theme="neon"] .contact-form button[type="submit"]:hover {
+    background-color: var(--highlight-color);
+}
+
+[data-theme="neon"] .btn.small:hover {
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
+    color: var(--primary-color);
 } 
