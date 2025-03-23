@@ -62,6 +62,165 @@
     --success-color: #2cb67d;
 }
 
+/* Grey Themes */
+[data-theme="charcoal"] {
+    --primary-color: #2c3e50;
+    --secondary-color: #95a5a6;
+    --accent-color: #34495e;
+    --highlight-color: #ecf0f1;
+    --dark-color: #1a252f;
+    --light-color: #ffffff;
+    --alt-light-color: #ecf0f1;
+    --gray-color: #bdc3c7;
+    --border-color: #34495e;
+    --success-color: #95a5a6;
+}
+
+[data-theme="pearl"] {
+    --primary-color: #f8f9fa;
+    --secondary-color: #495057;
+    --accent-color: #6c757d;
+    --highlight-color: #343a40;
+    --dark-color: #e9ecef;
+    --light-color: #212529;
+    --alt-light-color: #dee2e6;
+    --gray-color: #adb5bd;
+    --border-color: #ced4da;
+    --success-color: #495057;
+}
+
+[data-theme="mocha"] {
+    --primary-color: #f5e6d3;
+    --secondary-color: #8b4513;
+    --accent-color: #a0522d;
+    --highlight-color: #d2691e;
+    --dark-color: #faf3e0;
+    --light-color: #2c1810;
+    --alt-light-color: #e9edc9;
+    --gray-color: #8d8d8d;
+    --border-color: #d4a373;
+    --success-color: #8b4513;
+}
+
+[data-theme="granite"] {
+    --primary-color: #4a4a4a;
+    --secondary-color: #7f7f7f;
+    --accent-color: #666666;
+    --highlight-color: #e0e0e0;
+    --dark-color: #333333;
+    --light-color: #ffffff;
+    --alt-light-color: #f5f5f5;
+    --gray-color: #9e9e9e;
+    --border-color: #666666;
+    --success-color: #7f7f7f;
+}
+
+[data-theme="cream"] {
+    --primary-color: #fffff0;
+    --secondary-color: #d4b483;
+    --accent-color: #c4a484;
+    --highlight-color: #8b4513;
+    --dark-color: #f5f5dc;
+    --light-color: #2c1810;
+    --alt-light-color: #faf0e6;
+    --gray-color: #a9a9a9;
+    --border-color: #d4b483;
+    --success-color: #c4a484;
+}
+
+[data-theme="stone"] {
+    --primary-color: #2c3e50;
+    --secondary-color: #7f8c8d;
+    --accent-color: #95a5a6;
+    --highlight-color: #bdc3c7;
+    --dark-color: #1a252f;
+    --light-color: #ecf0f1;
+    --alt-light-color: #f5f6fa;
+    --gray-color: #95a5a6;
+    --border-color: #34495e;
+    --success-color: #7f8c8d;
+}
+
+[data-theme="ash"] {
+    --primary-color: #2c3e50;
+    --secondary-color: #95a5a6;
+    --accent-color: #34495e;
+    --highlight-color: #ecf0f1;
+    --dark-color: #1a252f;
+    --light-color: #ffffff;
+    --alt-light-color: #ecf0f1;
+    --gray-color: #bdc3c7;
+    --border-color: #34495e;
+    --success-color: #95a5a6;
+}
+
+/* White Themes */
+[data-theme="pure"] {
+    --primary-color: #ffffff;
+    --secondary-color: #2c3e50;
+    --accent-color: #3498db;
+    --highlight-color: #e74c3c;
+    --dark-color: #f8f9fa;
+    --light-color: #2c3e50;
+    --alt-light-color: #ecf0f1;
+    --gray-color: #95a5a6;
+    --border-color: #e0e0e0;
+    --success-color: #3498db;
+}
+
+[data-theme="ivory"] {
+    --primary-color: #fffff0;
+    --secondary-color: #d4b483;
+    --accent-color: #c4a484;
+    --highlight-color: #8b4513;
+    --dark-color: #f5f5dc;
+    --light-color: #2c1810;
+    --alt-light-color: #faf0e6;
+    --gray-color: #a9a9a9;
+    --border-color: #d4b483;
+    --success-color: #c4a484;
+}
+
+/* Brown/Cream Themes */
+[data-theme="latte"] {
+    --primary-color: #f5e6d3;
+    --secondary-color: #d4a373;
+    --accent-color: #ccd5ae;
+    --highlight-color: #e9edc9;
+    --dark-color: #faf3e0;
+    --light-color: #2c1810;
+    --alt-light-color: #e9edc9;
+    --gray-color: #8d8d8d;
+    --border-color: #d4a373;
+    --success-color: #ccd5ae;
+}
+
+[data-theme="cappuccino"] {
+    --primary-color: #e6d5c7;
+    --secondary-color: #8b4513;
+    --accent-color: #a0522d;
+    --highlight-color: #d2691e;
+    --dark-color: #d4b483;
+    --light-color: #ffffff;
+    --alt-light-color: #f5e6d3;
+    --gray-color: #8d8d8d;
+    --border-color: #8b4513;
+    --success-color: #a0522d;
+}
+
+[data-theme="espresso"] {
+    --primary-color: #2c1810;
+    --secondary-color: #8b4513;
+    --accent-color: #d2691e;
+    --highlight-color: #deb887;
+    --dark-color: #1a0f0a;
+    --light-color: #f5f5f5;
+    --alt-light-color: #3c2315;
+    --gray-color: #8d8d8d;
+    --border-color: #4c2d1a;
+    --success-color: #8b4513;
+}
+
 [data-theme="dark"] {
     --primary-color: #0a0a0a;
     --secondary-color: #9d4edd;
@@ -462,12 +621,18 @@ header.scrolled .nav-links a.active {
 }
 
 .skill-tags span {
-    background-color: rgba(44, 182, 125, 0.2); /* semi-transparent accent color */
-    color: var(--accent-color);
+    background-color: rgba(52, 73, 94, 0.2);
+    color: var(--light-color);
     padding: 0.5rem 1rem;
     border-radius: 5px;
     font-size: 0.9rem;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--secondary-color);
+}
+
+[data-theme="charcoal"] .skill-tags span {
+    background-color: rgba(236, 240, 241, 0.1);
+    color: var(--light-color);
+    border-color: var(--secondary-color);
 }
 
 /* Projects Section */
@@ -708,6 +873,12 @@ header.scrolled .nav-links a.active {
 }
 
 /* Contact Section */
+.contact {
+    background: linear-gradient(to bottom, var(--primary-color), var(--dark-color));
+    position: relative;
+    padding-bottom: 0;
+}
+
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -720,10 +891,19 @@ header.scrolled .nav-links a.active {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     position: relative;
     border: 1px solid var(--border-color);
+    margin-bottom: 4rem;
+    opacity: 0.95;
 }
 
-.contact-content::after {
-    display: none;
+.footer-text {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--light-color);
+    opacity: 0.8;
+}
+
+.footer-text p {
+    margin: 0;
 }
 
 .contact-item {
@@ -871,13 +1051,15 @@ header.scrolled .nav-links a.active {
 /* Footer */
 footer {
     text-align: center;
-    padding: 2rem 0;
-    background-color: var(--dark-color);
+    padding: 0;
+    background: linear-gradient(to bottom, var(--dark-color), var(--primary-color));
     color: var(--light-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100px;
+    min-height: 50px;
+    margin-top: 0;
+    opacity: 0.95;
 }
 
 footer p {
