@@ -1,43 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Bot Test Playground</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cypress Test Playground</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .dynamic-content {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+        }
+        .navigation {
+            margin-bottom: 20px;
+        }
+        .navigation a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        .navigation a:hover {
+            color: #007bff;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .close-modal {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <h1>🤖 Bot Test Playground</h1>
+    <h1>🤖 Cypress Test Playground</h1>
 
-  <div>
-    <button onclick="handleAction('greet')">Greet</button>
-    <button onclick="handleAction('warn')">Warn</button>
-    <button onclick="handleAction('reset')">Reset</button>
-    <button onclick="handleAction('random')">Random</button>
-  </div>
+    <div class="navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </div>
 
-  <div id="output" style="margin-top: 20px; font-size: 1.2em;"></div>
+    <div class="section" id="form-section">
+        <h2>Form Testing</h2>
+        <form id="test-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <select id="role" name="role">
+                    <option value="">Select a role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                    <option value="guest">Guest</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="terms" name="terms">
+                    I agree to the terms and conditions
+                </label>
+            </div>
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </div>
 
-  <script>
-    function handleAction(action) {
-      const output = document.getElementById('output');
+    <div class="section" id="interactive-section">
+        <h2>Interactive Elements</h2>
+        <button id="show-modal" class="btn">Show Modal</button>
+        <button id="toggle-content" class="btn">Toggle Content</button>
+        <button id="add-item" class="btn">Add Item</button>
+        
+        <div id="dynamic-content" class="dynamic-content">
+            <p>This content can be toggled</p>
+        </div>
+        
+        <ul id="items-list">
+            <!-- Items will be added here dynamically -->
+        </ul>
+    </div>
 
-      switch (action) {
-        case 'greet':
-          output.textContent = '👋 Hello, bot!';
-          break;
-        case 'warn':
-          output.textContent = '⚠️ Watch out!';
-          break;
-        case 'reset':
-          output.textContent = '';
-          break;
-        case 'random':
-          const messages = ['🎲 You rolled a 6!', '🎯 Bullseye!', '😴 The bot took a nap...', '🔥 That was spicy!'];
-          output.textContent = messages[Math.floor(Math.random() * messages.length)];
-          break;
-        default:
-          output.textContent = '🤷 Unknown action.';
-      }
-    }
-  </script>
+    <div class="section" id="async-section">
+        <h2>Async Operations</h2>
+        <button id="load-data" class="btn">Load Data</button>
+        <div id="data-container" class="dynamic-content">
+            <!-- Data will be loaded here -->
+        </div>
+    </div>
+
+    <div id="test-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <h2>Test Modal</h2>
+        <p>This is a test modal that can be opened and closed.</p>
+    </div>
+
+    <script>
+        // Form handling
+        document.getElementById('test-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted!');
+        });
+
+        // Modal handling
+        const modal = document.getElementById('test-modal');
+        const showModalBtn = document.getElementById('show-modal');
+        const closeModalBtn = document.querySelector('.close-modal');
+
+        showModalBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Toggle content
+        document.getElementById('toggle-content').addEventListener('click', () => {
+            const content = document.getElementById('dynamic-content');
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Add items
+        let itemCount = 0;
+        document.getElementById('add-item').addEventListener('click', () => {
+            const list = document.getElementById('items-list');
+            const item = document.createElement('li');
+            item.textContent = `Item ${++itemCount}`;
+            list.appendChild(item);
+        });
+
+        // Async data loading
+        document.getElementById('load-data').addEventListener('click', () => {
+            const container = document.getElementById('data-container');
+            container.innerHTML = '<p>Loading data...</p>';
+            
+            setTimeout(() => {
+                container.innerHTML = `
+                    <h3>Loaded Data</h3>
+                    <ul>
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                `;
+            }, 1500);
+        });
+    </script>
 </body>
-</html>
+</html> 
