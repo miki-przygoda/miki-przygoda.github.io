@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bot Test Playground</title>
+</head>
+<body>
+  <h1>🤖 Bot Test Playground</h1>
+
+  <div>
+    <button onclick="handleAction('greet')">Greet</button>
+    <button onclick="handleAction('warn')">Warn</button>
+    <button onclick="handleAction('reset')">Reset</button>
+    <button onclick="handleAction('random')">Random</button>
+  </div>
+
+  <div id="output" style="margin-top: 20px; font-size: 1.2em;"></div>
+
+  <script>
+    function handleAction(action) {
+      const output = document.getElementById('output');
+
+      switch (action) {
+        case 'greet':
+          output.textContent = '👋 Hello, bot!';
+          break;
+        case 'warn':
+          output.textContent = '⚠️ Watch out!';
+          break;
+        case 'reset':
+          output.textContent = '';
+          break;
+        case 'random':
+          const messages = ['🎲 You rolled a 6!', '🎯 Bullseye!', '😴 The bot took a nap...', '🔥 That was spicy!'];
+          output.textContent = messages[Math.floor(Math.random() * messages.length)];
+          break;
+        default:
+          output.textContent = '🤷 Unknown action.';
+      }
+    }
+  </script>
+</body>
+</html>
