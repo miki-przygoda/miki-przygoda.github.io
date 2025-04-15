@@ -7,7 +7,12 @@
 // Handle form submission
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded');
+    
+    // Log all elements with IDs to help debug
+    console.log('All elements with IDs:', document.querySelectorAll('[id]'));
+    
     const contactForm = document.getElementById('contactForm');
+    console.log('Contact form element:', contactForm);
     
     if (!contactForm) {
         console.error('Contact form not found');
@@ -16,19 +21,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Contact form found');
     
+    // Log form elements before trying to access them
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    
+    console.log('Form elements:', {
+        nameInput,
+        emailInput,
+        messageInput
+    });
+    
+    if (!nameInput || !emailInput || !messageInput) {
+        console.error('Form elements not found:', { nameInput, emailInput, messageInput });
+        alert('An error occurred. Please refresh the page and try again.');
+        return;
+    }
+    
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Get form values with error handling
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
-        
-        if (!nameInput || !emailInput || !messageInput) {
-            console.error('Form elements not found:', { nameInput, emailInput, messageInput });
-            alert('An error occurred. Please refresh the page and try again.');
-            return;
-        }
         
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
