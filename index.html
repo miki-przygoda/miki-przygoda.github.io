@@ -170,11 +170,128 @@
         </section>
     </main>
 
-    <!-- Load scripts at the end of body -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="assets/js/projects.js"></script>
     <script src="assets/js/podcast.js"></script>
     <script src="assets/js/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="assets/js/email.js"></script>
+    <script>
+
+        // Project Data
+        const projects = [
+            {
+                title: "Project Julia",
+                description: "A modular Python Discord bot built with Disnake, featuring OpenAI-powered responses, remote restart functionality, and clean, scalable architecture for easy customization.",
+                technologies: ["Python", "OpenAI API", "Disnake Lib"],
+                githubLink: "https://github.com/miki-przygoda/ProjectJulia-Public"
+            },
+            {
+                title: "Prime Finder in Binary",
+                description: "An optimized algorithm that extracts unique prime numbers from binary substrings, using multiprocessing and advanced filtering techniques.",
+                technologies: ["Python", "Unittest", "Multiprocessing"],
+                githubLink: "https://github.com/miki-przygoda/ADS-Python-CW"
+            },
+
+            {
+                title: "Family Tree CLI (Python CW1)",
+                description: "A command-line tool for navigating a family tree using dataclasses, supporting flexible queries and relationship lookups.",
+                technologies: ["Python", "Dataclasses", "CLI"],
+                githubLink: "https://github.com/miki-przygoda/PythonCW1-Year1"
+            },
+
+            {
+                title: "Family Tree Logic (Scheme CW2)",
+                description: "A recursive family tree model written in Racket, exploring functional programming and mutable data in Scheme.",
+                technologies: ["Scheme", "Racket"],
+                githubLink: "https://github.com/miki-przygoda/SchemeCW2-Year1"
+            },
+
+            {
+                title: "Celestial Body Simulator",
+                description: "A physics-based orbital simulator built using Pygame, modeling gravitational interactions between bodies with adjustable parameters.",
+                technologies: ["Python", "Pygame", "NumPy"],
+                githubLink: "https://github.com/miki-przygoda/World-Sim"
+            },
+
+            {
+                title: "Randomized Car Generator",
+                description: "A lightweight Pygame simulation for testing object generation and lifecycle logic in a 2D road environment.",
+                technologies: ["Python", "Pygame"],
+                githubLink: "https://github.com/miki-przygoda/Traffic-Sim"
+            },
+            // Add more projects here
+        ];
+
+        // Podcast Data
+        const podcasts = [
+        {
+            title: "The Ethics & Risk of Aneutronic Fusion Weapons",
+            description: "A thought experiment on clean fusion energy and its potential for weaponization — including how future societies might govern access to such technology through decentralized systems.",
+            episodeNumber: 1,
+            link: "podcast/episode1.html",
+            date: "March 22, 2025"
+        },
+        {
+            title: "Simulated Emotion vs Real Feeling in AI",
+            description: "A deep dive into whether simulated emotional responses in AI are functionally equivalent to real feeling, and how memory, experience, and context may form a model's evolving 'personality'.",
+            episodeNumber: 2,
+            link: "podcast/episode2.html",
+            date: "March 23, 2025"
+        }
+        ];
+
+        // Whitepaper Data
+        const whitepapers = [
+            {
+                title: "Malicious Mind",
+                description: "A whitepaper exploring the design of emotionally intelligent AI systems capable of simulating malicious intent, deception, and emotionally charged responses. It investigates emotional overlays, ethical boundaries, and the use of quantum-enhanced cognition in controlled, sandboxed environments.",
+                link: "assets/papers/MaliciousMind.pdf",
+                date: "7th December 2024"
+            },
+            // {
+            //     title: "Template Whitepaper",
+            //     description: "This is a template for future whitepapers. Each whitepaper will include a detailed analysis of specific topics in AI, system design, or cognitive modeling.",
+            //     link: "error.html",
+            //     date: "March 2024"
+            // },
+
+        ];
+
+        // Function to create whitepaper cards
+        function createWhitepaperCard({ title, description, link, date }) {
+            return `
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                        <div class="project-tags">
+                            <span>${date}</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="${link}" class="btn small primary" target="_blank">Read Whitepaper</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate project cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectGrid = document.querySelector('.project-grid');
+            if (projectGrid) {
+                projectGrid.innerHTML = projects.map(project => createProjectCard(project)).join('');
+            }
+
+            // const podcastGrid = document.querySelector('.podcast-grid');
+            // if (podcastGrid) {
+            //     podcastGrid.innerHTML = podcasts.map(podcast => createPodcastCard(podcast)).join('');
+            // }
+
+            const whitepaperGrid = document.querySelector('.whitepaper-grid');
+            if (whitepaperGrid) {
+                whitepaperGrid.innerHTML = whitepapers.map(whitepaper => createWhitepaperCard(whitepaper)).join('');
+            }
+        });
+    </script>
 </body>
 </html>
