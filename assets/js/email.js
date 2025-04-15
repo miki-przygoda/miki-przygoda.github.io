@@ -1,7 +1,13 @@
 // Initialize EmailJS
 (function() {
-    // Wait for both DOM and EmailJS to be ready
+    let isInitialized = false;
+    
     function initializeEmailJS() {
+        // Prevent multiple initializations
+        if (isInitialized) {
+            return;
+        }
+        
         console.log('Attempting to initialize EmailJS...');
         
         if (typeof emailjs === 'undefined') {
@@ -133,20 +139,23 @@
                     submitButton.disabled = false;
                 });
         });
+
+        // Mark as initialized
+        isInitialized = true;
+        console.log('EmailJS and form handlers initialized successfully');
     }
 
-    // Try to initialize immediately
-    initializeEmailJS();
-
-    // Also try to initialize when DOM is ready
+    // Try to initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', function() {
         console.log('DOM Content Loaded event fired');
         initializeEmailJS();
     });
 
-    // And try one more time after a short delay
+    // Fallback initialization after a short delay
     setTimeout(function() {
-        console.log('Delayed initialization attempt');
-        initializeEmailJS();
+        if (!isInitialized) {
+            console.log('Delayed initialization attempt');
+            initializeEmailJS();
+        }
     }, 1000);
 })(); 
