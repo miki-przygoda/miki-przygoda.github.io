@@ -94,23 +94,23 @@
             </div>
         </section>
 
-        <section id="podcast" class="podcast">
+        <!-- <section id="podcast" class="podcast">
             <div class="container">
                 <h2>A Look Into My Mind</h2>
                 <p class="section-intro">(Currently the links do not work as I haven't uploaded the episodes in a listenable format yet) 
                     <br> Listen to my latest podcast episodes exploring tech, and my thoughts on the future of AI.</p>
                 <div class="podcast-grid">
                 </div>
-                <!-- <div class="podcast-platforms">
+                <div class="podcast-platforms">
                     <p>Available on:</p>
                     <div class="platform-links">
                         <a href="#" class="platform-link">Spotify</a>
                         <a href="#" class="platform-link">Apple Podcasts</a>
                         <a href="#" class="platform-link">Google Podcasts</a>
                     </div>
-                </div> -->
+                </div>
             </div>
-        </section>
+        </section> -->
 
         <section id="whitepapers" class="whitepapers">
             <div class="container">
@@ -155,7 +155,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required style="resize: vertical; min-height: 150px; max-height: 300px; overflow-y: auto;"></textarea>
+                                <textarea id="message" name="message" rows="5" required style="resize: vertical; min-height: 150px; max-height: 250px; overflow-y: auto;"></textarea>
                             </div>
                             <button type="submit" class="btn primary">Send Message</button>
                         </form>
@@ -248,12 +248,12 @@
                 link: "assets/papers/MaliciousMind.pdf",
                 date: "7th December 2024"
             },
-            {
-                title: "Template Whitepaper",
-                description: "This is a template for future whitepapers. Each whitepaper will include a detailed analysis of specific topics in AI, system design, or cognitive modeling.",
-                link: "error.html",
-                date: "March 2024"
-            },
+            // {
+            //     title: "Template Whitepaper",
+            //     description: "This is a template for future whitepapers. Each whitepaper will include a detailed analysis of specific topics in AI, system design, or cognitive modeling.",
+            //     link: "error.html",
+            //     date: "March 2024"
+            // },
 
         ];
 
@@ -282,10 +282,10 @@
                 projectGrid.innerHTML = projects.map(project => createProjectCard(project)).join('');
             }
 
-            const podcastGrid = document.querySelector('.podcast-grid');
-            if (podcastGrid) {
-                podcastGrid.innerHTML = podcasts.map(podcast => createPodcastCard(podcast)).join('');
-            }
+            // const podcastGrid = document.querySelector('.podcast-grid');
+            // if (podcastGrid) {
+            //     podcastGrid.innerHTML = podcasts.map(podcast => createPodcastCard(podcast)).join('');
+            // }
 
             const whitepaperGrid = document.querySelector('.whitepaper-grid');
             if (whitepaperGrid) {

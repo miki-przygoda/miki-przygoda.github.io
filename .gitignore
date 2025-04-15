@@ -1,3 +1,4 @@
 # /podcast
 .DS_Store
 # /assets/papers
+.env

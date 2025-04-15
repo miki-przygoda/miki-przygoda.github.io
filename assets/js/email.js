@@ -1,6 +1,6 @@
 // Initialize EmailJS with your public key
 (function() {
-    emailjs.init("pJL7iFrDMqU0DfvMC");
+    emailjs.init(process.env.PUBLIC_KEY);
     console.log('EmailJS initialized with public key');
 })();
 
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Send email using EmailJS
             console.log('Attempting to send email...');
-            emailjs.send('service_jykd0y4', 'template_gvfho9r', templateParams)
+            emailjs.send(process.env.SERVICE_ID, process.env.TEMPLATE_ID, templateParams)
                 .then(function(response) {
                     console.log('Email sent successfully:', response);
                     if (response.status === 200) {
@@ -85,10 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         successMessage.className = 'success-message';
                         successMessage.innerHTML = `
                             <h3>Thank you for your message!</h3>
-                            <p>I'll get back to you as soon as possible.</p>
-                            <p>Currently the emailing system is not working, will fix in a future update.</p>
-                        `;
-                        
+                            <p>I'll get back to you as soon as possible.</p>`;
                         formContainer.innerHTML = '';
                         formContainer.appendChild(successMessage);
                         
