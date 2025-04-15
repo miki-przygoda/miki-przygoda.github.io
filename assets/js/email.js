@@ -1,31 +1,25 @@
-// Initialize EmailJS with your public key
+// Initialize EmailJS
 (function() {
-    emailjs.init(process.env.PUBLIC_KEY);
-    console.log('EmailJS initialized with public key');
+    emailjs.init("frKAn4WM_vviY0Feo");
+    console.log('EmailJS initialized');
 })();
 
 // Handle form submission
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM Content Loaded');
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
-        console.log('Contact form found');
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            console.log('Form submitted');
             
             // Get form values
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
             
-            console.log('Form values:', { name, email, message });
-            
-            // Enhanced validation
+            // Basic validation
             if (!name || !email || !message) {
                 alert('Please fill in all fields');
-                console.error('Validation failed: Empty fields');
                 return;
             }
             
@@ -33,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('Please enter a valid email address');
-                console.error('Validation failed: Invalid email format');
                 return;
             }
             
@@ -51,8 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 hour12: false
             });
             
-            console.log('Generated time:', time);
-            
             // Prepare template parameters
             const templateParams = {
                 name: name,
@@ -62,22 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 email: email
             };
             
-            // Validate template parameters
-            if (!Object.values(templateParams).every(value => value)) {
-                console.error('Template parameter validation failed:', templateParams);
-                alert('An error occurred while preparing your message. Please try again.');
-                submitButton.textContent = originalButtonText;
-                submitButton.disabled = false;
-                return;
-            }
-            
-            console.log('Template parameters:', templateParams);
-            
             // Send email using EmailJS
-            console.log('Attempting to send email...');
-            emailjs.send(process.env.SERVICE_ID, process.env.TEMPLATE_ID, templateParams)
+            emailjs.send("service_ab8ie2s", "template_kx6z5md", templateParams)
                 .then(function(response) {
-                    console.log('Email sent successfully:', response);
                     if (response.status === 200) {
                         // Show success message
                         const formContainer = contactForm.parentElement;
@@ -91,8 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         // Clear the form
                         contactForm.reset();
-                    } else {
-                        throw new Error('Unexpected response status: ' + response.status);
                     }
                 })
                 .catch(function(error) {
@@ -103,10 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Reset button state
                     submitButton.textContent = originalButtonText;
                     submitButton.disabled = false;
-                    console.log('Form submission completed');
                 });
         });
-    } else {
-        console.error('Contact form not found in DOM');
     }
 }); 
