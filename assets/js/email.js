@@ -137,7 +137,7 @@
 
 
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOM Content Loaded event fired');
+        console.log('DOM Content Loaded event');
         initializeEmailJS();
     });
 
