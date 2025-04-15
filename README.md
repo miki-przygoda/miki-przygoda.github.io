@@ -14,8 +14,7 @@ This is the source code for my personal website, built to showcase who I am, the
 - Easily extendable and lightweight
 - Error page for better user experience
 - Optimized for performance and accessibility
-
-- ⚠️ At the moment the emailing system DOES NOT WORK -- will get fixed in a future update ⚠️
+- Emailing System using EmailJS
 
 ---
 
