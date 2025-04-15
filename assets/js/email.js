@@ -2,6 +2,8 @@
 (function() {
     // Wait for both DOM and EmailJS to be ready
     function initializeEmailJS() {
+        console.log('Attempting to initialize EmailJS...');
+        
         if (typeof emailjs === 'undefined') {
             console.error('EmailJS not loaded');
             return;
@@ -10,16 +12,26 @@
         emailjs.init("frKAn4WM_vviY0Feo");
         console.log('EmailJS initialized');
 
-        // Get form elements
+        // Debug: Log all form elements
+        console.log('Checking form elements...');
         const contactForm = document.getElementById('contactForm');
+        console.log('Contact form element:', contactForm);
+        
         if (!contactForm) {
             console.error('Contact form not found');
             return;
         }
 
+        // Debug: Log all input elements
         const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
         const messageInput = document.getElementById('message');
+        
+        console.log('Form inputs:', {
+            name: nameInput,
+            email: emailInput,
+            message: messageInput
+        });
 
         if (!nameInput || !emailInput || !messageInput) {
             console.error('Form elements not found');
@@ -29,13 +41,22 @@
         // Add submit event listener
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log('Form submitted');
 
+            // Debug: Log form values
             const name = nameInput.value.trim();
             const email = emailInput.value.trim();
             const message = messageInput.value.trim();
+            
+            console.log('Form values:', {
+                name: name,
+                email: email,
+                message: message
+            });
 
             // Basic validation
             if (!name || !email || !message) {
+                console.error('Missing form values');
                 alert('Please fill in all fields');
                 return;
             }
@@ -43,6 +64,7 @@
             // Email format validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
+                console.error('Invalid email format');
                 alert('Please enter a valid email address');
                 return;
             }
@@ -75,9 +97,12 @@
                 email: email
             };
 
+            console.log('Sending email with parameters:', templateParams);
+
             // Send email using EmailJS
             emailjs.send("service_ab8ie2s", "template_kx6z5md", templateParams)
                 .then(function(response) {
+                    console.log('Email sent successfully:', response);
                     if (response.status === 200) {
                         // Show success message
                         const formContainer = contactForm.parentElement;
@@ -114,8 +139,14 @@
     initializeEmailJS();
 
     // Also try to initialize when DOM is ready
-    document.addEventListener('DOMContentLoaded', initializeEmailJS);
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM Content Loaded event fired');
+        initializeEmailJS();
+    });
 
     // And try one more time after a short delay
-    setTimeout(initializeEmailJS, 1000);
+    setTimeout(function() {
+        console.log('Delayed initialization attempt');
+        initializeEmailJS();
+    }, 1000);
 })(); 
