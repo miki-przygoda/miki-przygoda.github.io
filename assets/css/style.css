@@ -123,6 +123,18 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     padding-top: 80px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Allow text selection for input and textarea */
+input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
 
 .container {
@@ -386,40 +398,73 @@ header.scrolled .nav-links a.active {
 /* About Section */
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 2rem;
-    align-items: center;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
 }
 
-.about-image {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.about-text {
+    text-align: justify;
+    line-height: 1.8;
+    color: var(--light-color);
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
 }
 
 .skills {
-    margin-top: 2rem;
+    background-color: var(--dark-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.skills h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
 }
 
 .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
 }
 
 .skill-tags span {
-    background-color: rgba(52, 73, 94, 0.2);
+    background-color: var(--primary-color);
     color: var(--light-color);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
     font-size: 0.9rem;
     border: 1px solid var(--secondary-color);
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
 }
 
-[data-theme="charcoal"] .skill-tags span {
-    background-color: rgba(236, 240, 241, 0.1);
-    color: var(--light-color);
-    border-color: var(--secondary-color);
+.skill-tags span:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .skills {
+        position: static;
+    }
 }
 
 /* Projects Section */
